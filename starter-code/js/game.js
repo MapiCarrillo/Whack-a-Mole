@@ -6,16 +6,28 @@ function Game(container) {
   this.indexesMole = [];
   this.domMole;
   this.start();
+  this.round = 10;
+  this.roundCounter = 0;
 }
 
 Game.prototype.start = function() {
   this.generateMoles();
   this.generateHtml();
-  this.interval = setInterval(function(){
-    this.resetMole()
-    this.getRandomMoles();
-  }.bind(this),2000)
-  
+  this.interval = setInterval(
+    function() {
+      if (this.roundCounter < this.round) {
+        console.log("entro en if");
+        this.resetMole();
+        this.getRandomMoles();
+      } else if (this.roundCounter = this.round) {
+        console.log("salgo de if");
+        this.stop();
+        clearInterval(interval);
+      }
+      this.roundCounter++;
+    }.bind(this),
+    2000
+  );
 };
 
 Game.prototype.generateMoles = function() {
@@ -50,16 +62,20 @@ Game.prototype.getRandomMoles = function() {
 };
 
 Game.prototype.showMole = function(indexesMole) {
-  
-  indexesMole.forEach(function(mole) {
-    console.log(this.domMole)
-    console.log(this);
-    $(this.domMole[mole]).addClass('active')
-  }.bind(this));
-  this.indexesMole = []
+  indexesMole.forEach(
+    function(mole) {
+      console.log(this.domMole);
+      console.log(this);
+      $(this.domMole[mole]).addClass("active");
+    }.bind(this)
+  );
+  this.indexesMole = [];
 };
 
-
 Game.prototype.resetMole = function() {
-  $(this.domMole).removeClass('active')
+  $(this.domMole).removeClass("active");
+};
+Game.prototype.stop = function() {
+  this.resetMole();
+  alert("Your score is: ");
 };

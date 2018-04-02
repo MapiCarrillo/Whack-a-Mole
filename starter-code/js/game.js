@@ -28,20 +28,28 @@ Game.prototype.generateHtml = function() {
 
 Game.prototype.getRandomMoles = function() {
   //get random moles, 1 or 2
-  
-  var numMoles = Math.floor(Math.random() * 2 + 1);
-  
-  
 
-  
-  var indexesMole=[];
+  var numMoles = Math.floor(Math.random() * 2 + 1);
+
+  var indexesMole = [];
 
   for (var i = 0; i < numMoles; i++) {
-    indexesMole.push(this.moleArray.indexOf(this.moleArray[Math.floor(Math.random() * this.moleArray.length)]))
+    indexesMole.push(
+      this.moleArray.indexOf(
+        this.moleArray[Math.floor(Math.random() * this.moleArray.length)]
+      )
+    );
+    if (indexesMole[0] === indexesMole[1]) {
+      indexesMole.pop();
+    } else {
+      continue;
+    }
   }
-  console.log(indexesMole)
-
-  //var apearMoles = Math.floor(Math.random(indMole) * preApearMoles + 1);
-  //return apearMoles;
+  console.log(indexesMole);
   //add active class to the items n the html
+
+  
 };
+
+//var apearMoles = Math.floor(Math.random(indMole) * preApearMoles + 1);
+//return apearMoles;

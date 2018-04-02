@@ -5,28 +5,39 @@ function Game(container) {
   this.html = "";
   this.indexesMole = [];
   this.domMole;
+  this.level = 2000;
   this.start();
   this.round = 10;
   this.roundCounter = 0;
+  
 }
 
 Game.prototype.start = function() {
   this.generateMoles();
   this.generateHtml();
+  this.ply = new player();
   this.interval = setInterval(
     function() {
       if (this.roundCounter < this.round) {
-        console.log("entro en if");
+        //console.log("entro en if");
         this.resetMole();
         this.getRandomMoles();
       } else if (this.roundCounter = this.round) {
-        console.log("salgo de if");
+        //console.log("salgo de if");
         this.stop();
-        clearInterval(interval);
+        clearInterval(this.interval);
       }
       this.roundCounter++;
+      //this.ply.clickMole++;
+    if(this.ply.clickMole === 5){
+      this.level -= 150;
+      console.log("sube nivel");
+    }else if(this.ply.clickMole === 15){
+      this.level -= 150;
+      console.log("sube 2")
+    }
     }.bind(this),
-    2000
+    this.level
   );
 };
 
@@ -77,5 +88,5 @@ Game.prototype.resetMole = function() {
 };
 Game.prototype.stop = function() {
   this.resetMole();
-  alert("Your score is: ");
+  console.log("Your score is: " + this.ply.clickMole );
 };

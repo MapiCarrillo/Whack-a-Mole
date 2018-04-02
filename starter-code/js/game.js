@@ -23,15 +23,25 @@ Game.prototype.generateHtml = function() {
     this.html += '<div class="mole" id="' + index + '"></div>';
   });
   $(this.container).html(html);
+  this.getRandomMoles();
 };
 
 Game.prototype.getRandomMoles = function() {
   //get random moles, 1 or 2
-  var numberOfMoles = Math.floor(Math.random()*2+1)
-  console.log(numberOfMoles)
-  for (var i= 0; i < numberOfMoles; i++);
   
+  var numMoles = Math.floor(Math.random() * 2 + 1);
+  
+  
+
+  
+  var indexesMole=[];
+
+  for (var i = 0; i < numMoles; i++) {
+    indexesMole.push(this.moleArray.indexOf(this.moleArray[Math.floor(Math.random() * this.moleArray.length)]))
+  }
+  console.log(indexesMole)
+
+  //var apearMoles = Math.floor(Math.random(indMole) * preApearMoles + 1);
+  //return apearMoles;
   //add active class to the items n the html
 };
-
-

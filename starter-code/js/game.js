@@ -27,12 +27,8 @@ Game.prototype.generateHtml = function() {
 };
 
 Game.prototype.getRandomMoles = function() {
-  //get random moles, 1 or 2
-
   var numMoles = Math.floor(Math.random() * 2 + 1);
-
   var indexesMole = [];
-
   for (var i = 0; i < numMoles; i++) {
     indexesMole.push(
       this.moleArray.indexOf(
@@ -45,11 +41,14 @@ Game.prototype.getRandomMoles = function() {
       continue;
     }
   }
-  console.log(indexesMole);
-  //add active class to the items n the html
-
-  
+  this.showHide(indexesMole);
 };
 
-//var apearMoles = Math.floor(Math.random(indMole) * preApearMoles + 1);
-//return apearMoles;
+Game.prototype.showHide = function(indexesMole) {
+  var domElement = $(".mole");
+  indexesMole.forEach(function(mole) {
+    console.log(mole)
+    $(domElement[mole]).addClass('active')
+  });
+
+};

@@ -2,7 +2,7 @@ function Game(container) {
   this.moleArray = [];
   this.numberOfMoles = 5;
   this.container = container;
-  this.html = "";
+  this.html ="";
   this.indexesMole = [];
   this.domMole;
   this.level = 2000;
@@ -51,8 +51,10 @@ Game.prototype.generateMoles = function() {
 };
 
 Game.prototype.generateHtml = function() {
+  var html ='';
   this.moleArray.forEach(function(mole, index) {
-    this.html += '<div class="mole" id="' + index + '"></div>';
+    html += '<div class="mole" id="' + index + '"></div>';
+    
   });
   $(this.container).html(html);
   this.domMole = $(".mole");

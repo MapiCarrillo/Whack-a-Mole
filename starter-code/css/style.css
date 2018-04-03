@@ -18,3 +18,11 @@
     color: white;
     text-decoration: none;
 }
+
+.btn-outline-success{
+    margin-top: 20%;
+    margin-left: 30%;
+    padding: 70px;
+    font-family: Comic, 'Courier New', Courier, monospace;
+    font-size: 80px;
+}

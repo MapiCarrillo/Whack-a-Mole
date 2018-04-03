@@ -7,7 +7,7 @@ function Game(container) {
   this.domMole;
   this.level = 2000;
   this.start();
-  this.round = 5;
+  this.round = 15;
   this.roundCounter = 0;
   
   
@@ -32,9 +32,13 @@ Game.prototype.start = function() {
           this.level -= 150;
           console.log("sube 2");
         }
+        if(this.ply.live <= 0){
+          console.log("sin vidas")
+          this.stop();
+        clearInterval(this.interval);
+        }
         
       } else if (this.roundCounter >= this.round) {
-        console.log(this)
         this.stop();
         clearInterval(this.interval);
       }
@@ -45,8 +49,11 @@ Game.prototype.start = function() {
 Game.prototype.generateMoles = function() {
   for (var i = 0; i < this.numberOfMoles; i++) {
     this.moleArray.push(new Mole());
+
   }
+  
 };
+
 
 Game.prototype.generateHtml = function() {
   this.moleArray.forEach(function(mole, index) {
@@ -74,6 +81,7 @@ Game.prototype.getRandomMoles = function() {
 };
 
 Game.prototype.showMole = function(indexesMole) {
+  console.log(indexesMole);
   indexesMole.forEach(
     function(mole) {
       var game = this
@@ -81,15 +89,20 @@ Game.prototype.showMole = function(indexesMole) {
       $(this.domMole[mole]).click(function(){
         if($(this).hasClass('active')) {
            game.ply.clickMole++;
-          console.log("click +")
-          
+          console.log("click +")   
         }
-        else{
+        else if(game.ply.clickMole === 0){
+            game.ply.clickMole = 0;
+            game.ply.live -- ;
+            console.log("click - 0")
+          }
+          else{
           game.ply.clickMole--;
           game.ply.live -- ;
           console.log("click -")
+          } 
         }
-      })
+      )
     }.bind(this)
   );
   this.indexesMole = [];

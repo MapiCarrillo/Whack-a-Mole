@@ -7,14 +7,14 @@ function Game(container) {
   this.domMole;
   this.level = 2000;
   this.start();
-  this.round = 15;
+  this.round = 5;
   this.roundCounter = 0;
 }
 
 Game.prototype.start = function() {
   this.generateMoles();
   this.generateHtml();
-  this.addEventListeners()
+  this.addEventListeners();
   this.ply = new player();
   this.interval = setInterval(
     function() {
@@ -86,6 +86,7 @@ Game.prototype.showMole = function(indexesMole) {
   this.indexesMole = [];
 };
 
+
 Game.prototype.addEventListeners = function() {
   var game = this;
   console.log(this.domMole)
@@ -94,6 +95,8 @@ Game.prototype.addEventListeners = function() {
       $(this.domMole[mole]).click(function() {
         if ($(this).hasClass("active")) {
           game.ply.clickMole++;
+          game.pushMole($(this));
+    
           console.log("click +");
         } else if (game.ply.clickMole === 0) {
           game.ply.clickMole = 0;
@@ -108,6 +111,13 @@ Game.prototype.addEventListeners = function() {
     }.bind(this)
   )
 }
+Game.prototype.pushMole = function(mole){
+  console.log("Push")
+   mole.addClass("push");
+    this.timeOut = setTimeout(function(){
+      mole.removeClass("push");
+    }.bind(this), 1000) 
+}
 
 Game.prototype.resetMole = function() {
   $(this.domMole).removeClass("active");
@@ -115,6 +125,6 @@ Game.prototype.resetMole = function() {
 Game.prototype.stop = function() {
   this.resetMole();
   console.log(
-    "Your score is: " + this.ply.clickMole + "Your live is: " + this.ply.live
+    "Your score is: " + this.ply.clickMole + " Your live is: " + this.ply.live
   );
 };

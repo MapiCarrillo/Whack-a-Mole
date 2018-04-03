@@ -7,8 +7,9 @@ function Game(container) {
   this.domMole;
   this.level = 2000;
   this.start();
-  this.round = 3;
+  this.round = 5;
   this.roundCounter = 0;
+  
   
 }
 
@@ -19,27 +20,26 @@ Game.prototype.start = function() {
   this.interval = setInterval(
     function() {
       if (this.roundCounter < this.round) {
-        //console.log("entro en if");
+
         this.resetMole();
         this.getRandomMoles();
-    
-      } else if (this.roundCounter = this.round) {
-        //console.log("salgo de if");
+        this.roundCounter++;
+        
+        if (this.ply.clickMole === 5) {
+          this.level -= 150;
+          console.log("sube nivel");
+        } else if (this.ply.clickMole === 15) {
+          this.level -= 150;
+          console.log("sube 2");
+        }
+        
+      } else if (this.roundCounter >= this.round) {
+        console.log(this)
         this.stop();
         clearInterval(this.interval);
       }
-      this.roundCounter++;
       //this.ply.clickMole++;
-    if(this.ply.clickMole === 5){
-      this.level -= 150;
-      console.log("sube nivel");
-    }else if(this.ply.clickMole === 15){
-      this.level -= 150;
-      console.log("sube 2")
-    }
-    }.bind(this),
-    this.level
-  );
+    }.bind(this), this.level);
 };
 
 Game.prototype.generateMoles = function() {
@@ -76,11 +76,20 @@ Game.prototype.getRandomMoles = function() {
 Game.prototype.showMole = function(indexesMole) {
   indexesMole.forEach(
     function(mole) {
-      console.log(this.domMole);
-      console.log(this);
+      var game = this
       $(this.domMole[mole]).addClass("active");
-      $(this.domMole[mole]).click(
-        this.ply.matchMole())
+      $(this.domMole[mole]).click(function(){
+        if($(this).hasClass('active')) {
+           game.ply.clickMole++;
+          console.log("click +")
+          
+        }
+        else{
+          game.ply.clickMole--;
+          game.ply.live -- ;
+          console.log("click -")
+        }
+      })
     }.bind(this)
   );
   this.indexesMole = [];
@@ -91,5 +100,5 @@ Game.prototype.resetMole = function() {
 };
 Game.prototype.stop = function() {
   this.resetMole();
-  console.log("Your score is: " + this.ply.clickMole );
+  console.log("Your score is: " + this.ply.clickMole + "Your live is: " + this.ply.live);
 };

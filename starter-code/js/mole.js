@@ -1,7 +1,8 @@
-var Mole = function (x, y){
-    this.x = x;
-    this.y = y;
-    this.live = 3000;
+function Mole (){
+    // this.x = x;
+    // this.y = y;
+    // this.live = 3000;
+    
 }
 
 

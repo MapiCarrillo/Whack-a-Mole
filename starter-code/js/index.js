@@ -1,3 +1,3 @@
 $(document).ready(function() {
-  var game = new Game("#mole-game");
+  var game = new Game("#mole-game", 5, 'jose');
 });

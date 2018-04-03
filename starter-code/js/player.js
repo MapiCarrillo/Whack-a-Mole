@@ -1,7 +1,7 @@
- function player () {
+ function player (name) {
     this.clickMole = 0;
     this.live = 3;
-    
+    this.name = name || 'topito'
 
 } 
  player.prototype.matchMole = function (mole){

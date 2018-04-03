@@ -1,0 +1,9 @@
+.mole{
+    width: 100px;
+    height: 100px;
+    background: blue;
+    margin-bottom: 5px;
+}
+.active{
+    background: red;
+}

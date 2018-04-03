@@ -4,8 +4,9 @@
     this.matchMole();
 
 } 
- player.prototype.matchMole = function (){
-    $(".active").click(function(){
-        this.clickMole++
-    })
+ player.prototype.matchMole = function (mole){
+    $(".active").on("click", function(){
+       this.clickMole ++
+       console.log("click") 
+    });   
 } 

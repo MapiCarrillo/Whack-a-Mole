@@ -7,7 +7,7 @@ function Game(container) {
   this.domMole;
   this.level = 2000;
   this.start();
-  this.round = 10;
+  this.round = 3;
   this.roundCounter = 0;
   
 }
@@ -22,6 +22,7 @@ Game.prototype.start = function() {
         //console.log("entro en if");
         this.resetMole();
         this.getRandomMoles();
+    
       } else if (this.roundCounter = this.round) {
         //console.log("salgo de if");
         this.stop();
@@ -78,6 +79,8 @@ Game.prototype.showMole = function(indexesMole) {
       console.log(this.domMole);
       console.log(this);
       $(this.domMole[mole]).addClass("active");
+      $(this.domMole[mole]).click(
+        this.ply.matchMole())
     }.bind(this)
   );
   this.indexesMole = [];

@@ -9,22 +9,20 @@ function Game(container) {
   this.start();
   this.round = 15;
   this.roundCounter = 0;
-  
-  
 }
 
 Game.prototype.start = function() {
   this.generateMoles();
   this.generateHtml();
+  this.addEventListeners()
   this.ply = new player();
   this.interval = setInterval(
     function() {
       if (this.roundCounter < this.round) {
-
         this.resetMole();
         this.getRandomMoles();
         this.roundCounter++;
-        
+
         if (this.ply.clickMole === 5) {
           this.level -= 150;
           console.log("sube nivel");
@@ -32,28 +30,25 @@ Game.prototype.start = function() {
           this.level -= 150;
           console.log("sube 2");
         }
-        if(this.ply.live <= 0){
-          console.log("sin vidas")
+        if (this.ply.live <= 0) {
+          console.log("sin vidas");
           this.stop();
-        clearInterval(this.interval);
+          clearInterval(this.interval);
         }
-        
       } else if (this.roundCounter >= this.round) {
         this.stop();
         clearInterval(this.interval);
       }
-      //this.ply.clickMole++;
-    }.bind(this), this.level);
+    }.bind(this),
+    this.level
+  );
 };
 
 Game.prototype.generateMoles = function() {
   for (var i = 0; i < this.numberOfMoles; i++) {
     this.moleArray.push(new Mole());
-
   }
-  
 };
-
 
 Game.prototype.generateHtml = function() {
   this.moleArray.forEach(function(mole, index) {
@@ -81,37 +76,45 @@ Game.prototype.getRandomMoles = function() {
 };
 
 Game.prototype.showMole = function(indexesMole) {
-  console.log(indexesMole);
   indexesMole.forEach(
     function(mole) {
-      var game = this
+      var game = this;
+
       $(this.domMole[mole]).addClass("active");
-      $(this.domMole[mole]).click(function(){
-        if($(this).hasClass('active')) {
-           game.ply.clickMole++;
-          console.log("click +")   
-        }
-        else if(game.ply.clickMole === 0){
-            game.ply.clickMole = 0;
-            game.ply.live -- ;
-            console.log("click - 0")
-          }
-          else{
-          game.ply.clickMole--;
-          game.ply.live -- ;
-          console.log("click -")
-          } 
-        }
-      )
     }.bind(this)
   );
   this.indexesMole = [];
 };
+
+Game.prototype.addEventListeners = function() {
+  var game = this;
+  console.log(this.domMole)
+  this.domMole.each(
+    function(mole) {
+      $(this.domMole[mole]).click(function() {
+        if ($(this).hasClass("active")) {
+          game.ply.clickMole++;
+          console.log("click +");
+        } else if (game.ply.clickMole === 0) {
+          game.ply.clickMole = 0;
+          game.ply.live--;
+          console.log("click - 0");
+        } else {
+          game.ply.clickMole--;
+          game.ply.live--;
+          console.log("click -");
+        }
+      });
+    }.bind(this)
+  )
+}
 
 Game.prototype.resetMole = function() {
   $(this.domMole).removeClass("active");
 };
 Game.prototype.stop = function() {
   this.resetMole();
-  console.log("Your score is: " + this.ply.clickMole + "Your live is: " + this.ply.live);
+  console.log(
+    "Your score is: " + this.ply.clickMole + "Your live is: " + this.ply.live
+  );
 };

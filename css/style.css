@@ -1,17 +1,18 @@
 .mole{
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 150px;
     background: rgb(35, 117, 35);
-    margin-bottom: 5px;
+    margin: 10px;
+    display:inline-block;
 }
 .active{
-    background-image: url("../img /Topo1.png");
-    background-size: contain;
+    background-image: url("../img/Topo1.png");
+    background-size: cover;
     background-repeat: no-repeat;
 }
 .push{
-    background-image: url("../img /Topo2.png");
-    background-size: contain;
+    background-image: url("../img/Topo2.png");
+    background-size: cover;
     background-repeat: no-repeat;
 }
 
@@ -29,9 +30,27 @@
     color: rgb(7, 145, 7);
     border: 1px solid black;
     padding: 5%;
-    margin-top: 2%;
+    margin-top: 5px;
+    text-align: center;
 
 }
-#game-container{
+/* #game-container{
     display: none;
+} */
+#modal-end{
+    display: none;
+    text-align: center;
+}
+
+#mole-game{
+    text-align: center;
+    padding: 20px;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+a:hover{
+    color: white;
+    text-decoration: none;
 }

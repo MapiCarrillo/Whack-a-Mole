@@ -1,37 +1,53 @@
 function Game(container, rounds, playerName) {
   this.moleArray = [];
-  this.numberOfMoles = 5;
+  this.numberOfMoles = 18;
   this.container = container;
   this.html = "";
   this.indexesMole = [];
   this.domMole;
   this.level = 2000;
-  this.round = rounds || 10;
+  this.round = rounds || 30;
   this.roundCounter = 0;
-  this.playerName = playerName;
+  this.playerName = playerName || "Topito";
   this.start();
-  
-  
+  this.ply = new player(this.playerName);
+}
+
+Game.prototype.generateMoles = function() {
+  this.domMole = $("#mole-game");
+  for (var i = 0; i < this.numberOfMoles; i++) {
+    var mole = new Mole(this,i);
+    this.moleArray.push(mole);
+  }
 }
 
 Game.prototype.start = function() {
+  $("#nombre-jugador").text("Nombre:  " + this.playerName + " ")
   this.generateMoles();
-  this.generateHtml();
-  this.ply = new player(this.playerName);
-  this.addEventListeners();
+
+
+
+  //this.addEventListeners();
+
   this.interval = setInterval(
     function() {
       if (this.roundCounter < this.round) {
         this.resetMole();
         this.getRandomMoles();
         this.roundCounter++;
+        console.log(this.roundCounter)
         $("#puntos").text("Puntos: " + this.ply.clickMole)
         $("#vidas").text("Vidas: " + this.ply.live)
         
         if (this.ply.clickMole === 5) {
-          this.level -= 150;
+          console.log("subes nivel")
+          this.level -= 200;
         } else if (this.ply.clickMole === 15) {
-          this.level -= 150;
+          console.log("subes nivel")
+          this.level -= 300;
+        } else if (this.ply.clickMole === 20) {
+          console.log("subes nivel")
+          this.level -= 500;
         }
         if (this.ply.live <= 0) {
           this.stop();
@@ -46,35 +62,12 @@ Game.prototype.start = function() {
   );
 };
 
-Game.prototype.generateMoles = function() {
-  for (var i = 0; i < this.numberOfMoles; i++) {
-    this.moleArray.push(new Mole());
-  }
-};
 
-Game.prototype.generateHtml = function() {
-  //var html ='';
-  console.log(this.playerName);
-  var game = this;
-  this.moleArray.forEach(
-    function(mole, index) {
-      this.html += '<div class="mole" id="' + index + '"></div>';
-    }.bind(this)
-  );
-  $(this.container).html(game.html);
-  this.domMole = $(".mole");
-  $("#nombre-jugador").text("Nombre: " + this.playerName + "-")
-  
-};
 
 Game.prototype.getRandomMoles = function() {
   var numMoles = Math.floor(Math.random() * 2 + 1);
   for (var i = 0; i < numMoles; i++) {
-    this.indexesMole.push(
-      this.moleArray.indexOf(
-        this.moleArray[Math.floor(Math.random() * this.moleArray.length)]
-      )
-    );
+    this.indexesMole.push(this.moleArray.indexOf(this.moleArray[Math.floor(Math.random() * this.moleArray.length)]))
     if (this.indexesMole[0] === this.indexesMole[1]) {
       this.indexesMole.pop();
     } else {
@@ -84,23 +77,21 @@ Game.prototype.getRandomMoles = function() {
   this.showMole(this.indexesMole);
 };
 
-Game.prototype.showMole = function(indexesMole) {
-  indexesMole.forEach(
-    function(mole) {
-      var game = this;
-      $(this.domMole[mole]).addClass("active");
+Game.prototype.showMole = function() {
+  //console.log($('.mole').eq(1))
+  this.indexesMole.forEach(function(moleIndex) {
+      $('.mole').eq(moleIndex).addClass("active");
     }.bind(this)
   );
   this.indexesMole = [];
 };
 
 Game.prototype.resetMole = function() {
-  console.log($('.mole.active').length)
   this.ply.live = this.ply.live - $('.mole.active').length
-  $(this.domMole).removeClass("active");
+  $('.mole').removeClass("active");
 };
 
-Game.prototype.addEventListeners = function() {
+/* Game.prototype.addEventListeners = function() {
   var game = this;
   this.domMole.each(
     function(mole) {
@@ -125,7 +116,7 @@ Game.prototype.addEventListeners = function() {
   );
   //this.ply.live--;
   console.log("no clic");
-};
+}; */
 
 Game.prototype.pushMole = function(mole) {
   console.log("Push");
@@ -138,8 +129,28 @@ Game.prototype.pushMole = function(mole) {
     1000
   );
 };
-
+Game.prototype.endModal = function(){
+    $("#modal-end").modal("show");
+    
+ if (this.roundCounter >= this.round){
+  $(".mensaje").append("<p>"+ this.playerName +" " + " has ganado " + this.ply.clickMole + " " + "puntos!!!");
+ }else {
+    $(".mensaje").append("<p>"+ this.playerName + " " + "has perdido todas las vidas.</p> <p> has ganado " + this.ply.clickMole + " " + "puntos");
+  }
+   $("#jugar-dn").click(function() {
+    $("#start-game").show();
+     
+  }.bind(this))
+}
 Game.prototype.stop = function() {
+  this.endModal();
   this.resetMole();
-  alert ("Game Over");
+  
 };
+/* Game.prototype.resetGame = function(){
+  $('#mole-game').empty()
+  this.moleArray=[]
+  console.log(this.moleArray)
+  
+  this.start();
+} */

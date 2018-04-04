@@ -1,7 +1,7 @@
 function Mole(game, index) {
   this.game = game;
   this.element = $("<div>")
-    .addClass("mole")
+    .addClass("mole col")
     .attr("mole-idx", index);
   this.game.domMole.append(this.element);
   this.addEventListeners();

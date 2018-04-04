@@ -1,7 +1,37 @@
+body{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f4d802+0,f2df54+97 */
+background: #f4d802; /* Old browsers */
+background: -moz-radial-gradient(center, ellipse cover, #f4d802 0%, #f2df54 97%); /* FF3.6-15 */
+background: -webkit-radial-gradient(center, ellipse cover, #f4d802 0%,#f2df54 97%); /* Chrome10-25,Safari5.1-6 */
+background: radial-gradient(ellipse at center, #f4d802 0%,#f2df54 97%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4d802', endColorstr='#f2df54',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+}
+h1{
+    text-align: center;
+    font-family: 'Indie Flower', cursive;
+    font-size: 7.5em;
+}
+.row{
+    margin-top: 1%;
+    
+}
+.s-v{
+    font-size: 2em;
+    margin-top: 10px;
+    text-align: center;
+    
+}
+
+.name{
+    font-size: 2em;
+    text-align: center;
+    
+}
 .mole{
-    width: 200px;
+    width: 16.66% ;
     height: 150px;
-    background: rgb(35, 117, 35);
+    background: #F4D802;
     margin: 10px;
     display:inline-block;
 }
@@ -17,7 +47,7 @@
 }
 
 
-.btn-outline-success{
+.btn-outline-dark{
     margin-top: 20%;
     margin-left: 30%;
     padding: 70px;
@@ -54,3 +84,4 @@ a:hover{
     color: white;
     text-decoration: none;
 }
+

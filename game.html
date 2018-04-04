@@ -17,22 +17,28 @@
   <script type="text/javascript" src="js/mole.js"></script>
   <script type="text/javascript" src="js/game.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
-
-
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/style.css">
 
 </head>
 
 <body>
   <!-- content -->
-  <div id="game-container">
-    <div class="container">
-      <span class="name" id="nombre-jugador">Nombre:</span>
-      <span class="score" id="puntos">Puntos:</span>
-      <span id="vidas">Vidas:</span>
+  <header>
+    <div class="container-fluid">
+      <div class = "row">
+        <div class = "name col-3" id = "nombre-jugador">Nombre:</div>
+        <h1 class = "col-6">Whack-A-Mole</h1>
+      <div class = "col-3 s-v">
+      <div class = "score" id = "puntos">Puntos:</div>
+      <div id = "vidas">Vidas:</div>
     </div>
-    <div id="mole-game"></div>
-  </div>
+    </div>
+    </div>
+  </header>
+  <main class = "container-fluid">
+    <div id = "mole-game"></div>
+  </main>
   <!-- End content -->
 <!-- Modal final -->
 <!-- Button trigger modal -->

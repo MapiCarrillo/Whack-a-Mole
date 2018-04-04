@@ -10,7 +10,7 @@ function Game(container, rounds, playerName) {
   this.roundCounter = 0;
   this.playerName = playerName;
   this.start();
-  console.log(this.round)
+  
   
 }
 
@@ -25,6 +25,8 @@ Game.prototype.start = function() {
         this.resetMole();
         this.getRandomMoles();
         this.roundCounter++;
+        $("#puntos").text("Puntos: " + this.ply.clickMole)
+        $("#vidas").text("Vidas: " + this.ply.live)
         
         if (this.ply.clickMole === 5) {
           this.level -= 150;
@@ -139,7 +141,5 @@ Game.prototype.pushMole = function(mole) {
 
 Game.prototype.stop = function() {
   this.resetMole();
-  console.log(
-    "Your score is: " + this.ply.clickMole + " Your live is: " + this.ply.live
-  );
+  alert ("Game Over");
 };

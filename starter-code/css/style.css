@@ -14,10 +14,7 @@
     background-size: contain;
     background-repeat: no-repeat;
 }
-.start{
-    color: white;
-    text-decoration: none;
-}
+
 
 .btn-outline-success{
     margin-top: 20%;
@@ -32,5 +29,6 @@
     color: rgb(7, 145, 7);
     border: 1px solid black;
     padding: 5%;
+    margin-top: 2%;
 
 }

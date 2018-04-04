@@ -26,3 +26,11 @@
     font-family: Comic, 'Courier New', Courier, monospace;
     font-size: 80px;
 }
+.container{
+    font-family: Comic, 'Courier New', Courier, monospace;
+    font-size: 30px;
+    color: rgb(7, 145, 7);
+    border: 1px solid black;
+    padding: 5%;
+
+}

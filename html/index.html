@@ -1,67 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Whack-A-Mole
-    </title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Whack-A-Mole
+  </title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-    <script type="text/javascript" src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>  
+    <script type="text/javascript" src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="../js/player.js"></script>
   <script type="text/javascript" src="../js/mole.js"></script>
   <script type="text/javascript" src="../js/game.js"></script>
- <script type="text/javascript" src="../js/index.js"></script>
-   
+  <script type="text/javascript" src="../js/index.js"></script>
+
 
   <link rel="stylesheet" type="text/css" href="../css/style.css">
-  
+
 </head>
+
 <body>
-    
-        <!-- Button trigger modal -->
-    <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModalCenter">
-        Start!!!!
-      </button>
-      
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+
+  <!-- Button trigger modal -->
+  <button type="button" id="show-modal" class="btn btn-outline-success" data-toggle="modal" data-target="#modal-start">
+    Start!!!!
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="modal-start" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="formGroupExampleInput">Nombre</label>
+              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nombre">
             </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                      <label for="formGroupExampleInput">Nombre</label>
-                      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nombre">
-                    </div>
-                    <div class="form-group">
-                      <label for="formGroupExampleInput2">Rondas</label>
-                      <input type="number" class="form-control" id="formGroupExampleInput2" placeholder="Nº de rondas que quieres jugar">
-                    </div>
-                  </form>
+            <div class="form-group">
+              <label for="formGroupExampleInput2">Rondas</label>
+              <input type="number" class="form-control" id="formGroupExampleInput2" placeholder="Nº de rondas que quieres jugar">
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+  
+          <button type="button" id="start-game" class="btn btn-primary">Save changes</button>
         </div>
       </div>
-      <div class = "container">
-          <span class = "name">Nombre:</span>
-          <span class = "score">Puntos:</span>
-      </div>
-     <div id= "mole-game"></div> 
-      </body>
-      </html>
+    </div>
+  </div>
+  <div id="game-container">
+    <div class="container">
+      <span class="name" id ="nombre-jugador">Nombre:</span>
+      <span class="score" id="puntos">Puntos:</span>
+    </div>
+    <div id="mole-game"></div>
+  </div>
+</body>
+
+</html>

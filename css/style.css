@@ -32,3 +32,6 @@
     margin-top: 2%;
 
 }
+#game-container{
+    display: none;
+}

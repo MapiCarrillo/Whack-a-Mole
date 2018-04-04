@@ -6,17 +6,19 @@ function Game(container, rounds, playerName) {
   this.indexesMole = [];
   this.domMole;
   this.level = 2000;
-  this.start();
-  this.round = rounds;
+  this.round = rounds || 10;
   this.roundCounter = 0;
   this.playerName = playerName;
+  this.start();
+  console.log(this.round)
+  
 }
 
 Game.prototype.start = function() {
   this.generateMoles();
   this.generateHtml();
-  this.addEventListeners();
   this.ply = new player(this.playerName);
+  this.addEventListeners();
   this.interval = setInterval(
     function() {
       if (this.roundCounter < this.round) {
@@ -50,6 +52,7 @@ Game.prototype.generateMoles = function() {
 
 Game.prototype.generateHtml = function() {
   //var html ='';
+  console.log(this.playerName);
   var game = this;
   this.moleArray.forEach(
     function(mole, index) {
@@ -58,6 +61,8 @@ Game.prototype.generateHtml = function() {
   );
   $(this.container).html(game.html);
   this.domMole = $(".mole");
+  $("#nombre-jugador").text("Nombre: " + this.playerName + "-")
+  
 };
 
 Game.prototype.getRandomMoles = function() {

@@ -1,6 +1,6 @@
 function Game(container, rounds, playerName) {
   this.moleArray = [];
-  this.numberOfMoles = 18;
+  this.numberOfMoles = 9;
   this.container = container;
   this.html = "";
   this.indexesMole = [];
@@ -22,7 +22,7 @@ Game.prototype.generateMoles = function() {
 }
 
 Game.prototype.start = function() {
-  $("#nombre-jugador").text("Nombre:  " + this.playerName + " ")
+  $("#nombre-jugador").html("Nombre:  " + this.playerName + " ")
   this.generateMoles();
 
 
@@ -80,7 +80,8 @@ Game.prototype.getRandomMoles = function() {
 Game.prototype.showMole = function() {
   //console.log($('.mole').eq(1))
   this.indexesMole.forEach(function(moleIndex) {
-      $('.mole').eq(moleIndex).addClass("active");
+      $('.mole').eq(moleIndex).addClass("active")
+      
     }.bind(this)
   );
   this.indexesMole = [];
@@ -119,7 +120,6 @@ Game.prototype.resetMole = function() {
 }; */
 
 Game.prototype.pushMole = function(mole) {
-  console.log("Push");
   mole.addClass("push");
   mole.removeClass("active");
   this.timeOut = setTimeout(

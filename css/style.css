@@ -28,22 +28,42 @@ h1{
     text-align: center;
     
 }
+#mole-game{
+    text-align: center;
+    /* margin-top: 30px; */
+}
+
 .mole{
-    width: 16.66% ;
-    height: 150px;
-    background: #F4D802;
-    margin: 10px;
+    width: 25%;
+    height: 240px;
+    background-image: url("../img/topos-tierra.png");
+    background-position:center bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: auto 15px;
     display:inline-block;
+    /* padding-top: 160px;  */
 }
-.active{
-    background-image: url("../img/Topo1.png");
-    background-size: cover;
-    background-repeat: no-repeat;
+.active,.push{
+    transition: all 0.15s linear;
+    position: relative;
+
 }
-.push{
-    background-image: url("../img/Topo2.png");
-    background-size: cover;
+.active::after,.push::after{
+    content: '';
+    height: 100%;
+    width: 100%;
+    background-image: url(../img/topos-topos.png);
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: 58%;
+    z-index: -1;
     background-repeat: no-repeat;
+    background-position-x: center;
+}
+.push::after{
+    background-image: url(../img/topos-topos-push.png);
 }
 
 
@@ -72,10 +92,6 @@ h1{
     text-align: center;
 }
 
-#mole-game{
-    text-align: center;
-    padding: 20px;
-}
 a{
     color: white;
     text-decoration: none;

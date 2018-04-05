@@ -11,10 +11,13 @@ function Game(container, rounds, playerName) {
   this.playerName = playerName || "Topito";
   this.ply = new player(this.playerName);
   this.mainSong = new Audio();
+  this.mainSong.volume = .2;
   this.mainSong.src = "audios/audio_hero_Toys-On-Parade_SIPML_Q-0240.mp3";
   this.moleSongActive = new Audio();
+  this.moleSongActive.volume = .1
   this.moleSongActive.src = "audios/candy-crush-bomba-color.mp3";
   this.endGame = new Audio();
+  this.endGame.volume = .1
   this.endGame.src = "audios/bites-ta-da-winner.mp3";
   
   this.start();
@@ -151,7 +154,8 @@ Game.prototype.endModal = function(){
   }.bind(this))
 }
 Game.prototype.stop = function() {
-
+  this.mainSong.pause();
+  this.endGame.play();
   this.endModal();
   this.resetMole();
   

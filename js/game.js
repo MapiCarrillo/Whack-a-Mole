@@ -9,8 +9,15 @@ function Game(container, rounds, playerName) {
   this.round = rounds || 30;
   this.roundCounter = 0;
   this.playerName = playerName || "Topito";
-  this.start();
   this.ply = new player(this.playerName);
+  this.mainSong = new Audio();
+  this.mainSong.src = "audios/audio_hero_Toys-On-Parade_SIPML_Q-0240.mp3";
+  this.moleSongActive = new Audio();
+  this.moleSongActive.src = "audios/candy-crush-bomba-color.mp3";
+  this.endGame = new Audio();
+  this.endGame.src = "audios/bites-ta-da-winner.mp3";
+  
+  this.start();
 }
 
 Game.prototype.generateMoles = function() {
@@ -22,6 +29,7 @@ Game.prototype.generateMoles = function() {
 }
 
 Game.prototype.start = function() {
+  this.mainSong.play()
   $("#nombre-jugador").html("Nombre:  " + this.playerName + " ")
   this.generateMoles();
 
@@ -81,7 +89,7 @@ Game.prototype.showMole = function() {
   //console.log($('.mole').eq(1))
   this.indexesMole.forEach(function(moleIndex) {
       $('.mole').eq(moleIndex).addClass("active")
-      
+      this.moleSongActive.play();
     }.bind(this)
   );
   this.indexesMole = [];
@@ -143,6 +151,7 @@ Game.prototype.endModal = function(){
   }.bind(this))
 }
 Game.prototype.stop = function() {
+
   this.endModal();
   this.resetMole();
   

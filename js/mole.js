@@ -4,7 +4,11 @@ function Mole(game, index) {
     .addClass("mole col")
     .attr("mole-idx", index);
   this.game.domMole.append(this.element);
+  this.moleSongPush = new Audio();
+  this.moleSongPush.src = "audios/zapsplat_cartoon_slip_fall_impact_18066.mp3"
   this.addEventListeners();
+ 
+  
 }
 
 Mole.prototype.addEventListeners = function() {
@@ -14,6 +18,7 @@ Mole.prototype.addEventListeners = function() {
       if ($(this.element).hasClass("active")) {
         this.game.ply.clickMole++;
         this.game.pushMole($(this.element));
+        this.moleSongPush.play();
         this.game.isAlive = false;
         console.log("click +");
       } else if (this.game.ply.clickMole === 0) {

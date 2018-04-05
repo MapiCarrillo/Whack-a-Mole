@@ -17,53 +17,47 @@
   <script type="text/javascript" src="js/mole.js"></script>
   <script type="text/javascript" src="js/game.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
-  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/style.css">
 
 </head>
 
 <body>
-    <!-- <audio src="audios/audio_hero_Toys-On-Parade_SIPML_Q-0240.mp3" autoplay="true" loop="true"></audio> -->
-  <!-- content -->
   <header>
     <div class="container-fluid">
-      <div class = "row">
-        <div class = "name col-3" id = "nombre-jugador"></div>
-        <h1 class = "col-6">Whack-A-Mole</h1>
-      <div class = "col-3 s-v">
-      <div class = "score" id = "puntos">Puntos:</div>
-      <div id = "vidas">Vidas:</div>
-    </div>
-    </div>
+      <div class="row">
+        <div class="name col-3" id="nombre-jugador"></div>
+        <h1 class="col-6">Whack-A-Mole</h1>
+        <div class="col-3 s-v">
+          <div class="score" id="puntos">Puntos:</div>
+          <div id="vidas">Vidas:</div>
+        </div>
+      </div>
     </div>
   </header>
-  <main class = "container-fluid">
-    <div id = "mole-game"></div>
+  <main class="container-fluid">
+    <div id="mole-game"></div>
   </main>
   <!-- End content -->
-<!-- Modal final -->
-<!-- Button trigger modal -->
-<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button> -->
+  <!-- Modal final -->
+  <div class="modal fade" id="modal-end" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Whack-A-Mole</h5>
+        </div>
+        <div class="mensaje">
 
-<!-- Modal -->
-<div class="modal fade" id="modal-end" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Whack-A-Mole</h5>
-      </div>
-      <div class="mensaje">
-  
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" id="jugar-dn" class="btn btn-primary"><a href = "index.html">Volver a juagar</a></button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" id="jugar-dn" class="btn btn-primary">
+            <a href="index.html">Volver a juagar</a>
+          </button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </body>
 
 </html>

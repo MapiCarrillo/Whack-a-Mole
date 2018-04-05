@@ -5,11 +5,9 @@ function Mole(game, index) {
     .attr("mole-idx", index);
   this.game.domMole.append(this.element);
   this.moleSongPush = new Audio();
-  this.moleSongPush.volume = .1
-  this.moleSongPush.src = "audios/zapsplat_cartoon_slip_fall_impact_18066.mp3"
+  this.moleSongPush.volume = 0.1;
+  this.moleSongPush.src = "audios/zapsplat_cartoon_slip_fall_impact_18066.mp3";
   this.addEventListeners();
- 
-  
 }
 
 Mole.prototype.addEventListeners = function() {
@@ -34,30 +32,3 @@ Mole.prototype.addEventListeners = function() {
     }.bind(this)
   );
 };
-
-/* Game.prototype.addEventListeners = function() {
-    var game = this;
-    this.domMole.each(
-      function(mole) {
-        $(this.domMole[mole]).click(function() {
-          if ($(this).hasClass("active")) {
-            game.ply.clickMole++;
-            game.pushMole($(this));
-            this.isAlive = false;
-            console.log(this.isAlive)
-            console.log("click +");
-          } else if (game.ply.clickMole === 0) {
-            game.ply.clickMole = 0;
-            game.ply.live--;
-            console.log("click - 0");
-          } else {
-            game.ply.clickMole--;
-            game.ply.live--;
-            console.log("click -");
-          }
-        });
-      }.bind(this)
-    );
-    //this.ply.live--;
-    console.log("no clic");
-  }; */

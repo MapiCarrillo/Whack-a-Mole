@@ -60,7 +60,6 @@ h1 {
   background-size: contain;
   margin: auto 15px;
   display: inline-block;
-  /* padding-top: 160px;  */
 }
 .active,
 .push {
@@ -76,7 +75,7 @@ h1 {
   position: absolute;
   top: 0;
   left: 0;
-  background-size: 58%;
+  background-size: 46%;
   z-index: -1;
   background-repeat: no-repeat;
   background-position-x: center;

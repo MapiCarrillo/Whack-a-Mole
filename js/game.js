@@ -5,6 +5,7 @@ function Game(container, playerName, rounds) {
   this.html = "";
   this.indexesMole = [];
   this.domMole;
+  this.oneDomMole;
   this.level = 2000;
   this.round = rounds || 30;
   this.roundCounter = 0;
@@ -25,7 +26,15 @@ function Game(container, playerName, rounds) {
 
 Game.prototype.generateMoles = function() {
   this.domMole = $("#mole-game");
+  var cont = 0;
   for (var i = 0; i < this.numberOfMoles; i++) {
+    cont ++;
+    if(cont === 1 || cont === 4 || cont === 7) {
+      this.element = $("<div>")
+      .addClass("row moleRow" + i);
+      this.domMole.append(this.element);
+      this.oneDomMole = $(".moleRow"+i);
+    }
     var mole = new Mole(this, i);
     this.moleArray.push(mole);
   }

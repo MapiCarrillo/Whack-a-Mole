@@ -3,7 +3,7 @@ function Mole(game, index) {
   this.element = $("<div>")
     .addClass("mole col")
     .attr("mole-idx", index);
-  this.game.domMole.append(this.element);
+  this.game.oneDomMole.append(this.element);
   this.moleSongPush = new Audio();
   this.moleSongPush.volume = 0.1;
   this.moleSongPush.src = "audios/zapsplat_cartoon_slip_fall_impact_18066.mp3";

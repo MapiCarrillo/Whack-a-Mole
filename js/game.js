@@ -42,7 +42,6 @@ Game.prototype.start = function() {
         this.resetMole();
         this.getRandomMoles();
         this.roundCounter++;
-        console.log(this.roundCounter);
         $("#puntos").text("Puntos: " + this.ply.clickMole);
         $("#vidas").text("Vidas: " + this.ply.live);
 
@@ -87,7 +86,6 @@ Game.prototype.getRandomMoles = function() {
 };
 
 Game.prototype.showMole = function() {
-  //console.log($('.mole').eq(1))
   this.indexesMole.forEach(
     function(moleIndex) {
       $(".mole")

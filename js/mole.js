@@ -1,8 +1,8 @@
 function Mole(game, index) {
   this.game = game;
-  this.element = $("<div>")
-    .addClass("mole col")
-    .attr("mole-idx", index);
+  // this.element = $("<div>")
+  //   .addClass("mole col")
+  //   .attr("mole-idx", index);
   this.game.domMole.append(this.element);
   this.moleSongPush = new Audio();
   this.moleSongPush.volume = 0.1;

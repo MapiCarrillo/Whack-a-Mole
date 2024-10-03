@@ -1,4 +1,4 @@
-body {
+.body-styles {
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f4d802+0,f2df54+97 */
   background: #f4d802; /* Old browsers */
   background: -moz-radial-gradient(
@@ -20,6 +20,12 @@ body {
   ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4d802', endColorstr='#f2df54',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
+.game-container{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-evenly;
+} 
 h1 {
   text-align: center;
   font-family: "Amatic SC", cursive;
@@ -31,9 +37,9 @@ h1 {
   font-size: 10em;
   margin: 235px auto 0 auto;
 }
-.row {
+/* .row {
   margin-top: 1%;
-}
+} */
 .s-v {
   font-size: 3em;
   margin-top: 10px;
@@ -52,14 +58,14 @@ h1 {
 }
 
 .mole {
-  width: 25%;
-  height: 240px;
+  /* width: 100%; */
+  min-height: 190px;
   background-image: url("../img/topos-tierra.png");
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: contain;
-  margin: auto 15px;
-  display: inline-block;
+  /* margin: auto 15px;
+  display: inline-block; */
 }
 .active,
 .push {
@@ -91,7 +97,7 @@ h1 {
   font-family: Comic, "Courier New", Courier, monospace;
   font-size: 80px;
 }
-.container {
+/* .container {
   font-family: Comic, "Courier New", Courier, monospace;
   font-size: 30px;
   color: rgb(7, 145, 7);
@@ -99,7 +105,7 @@ h1 {
   padding: 5%;
   margin-top: 5px;
   text-align: center;
-}
+} */
 
 #modal-end {
   display: none;

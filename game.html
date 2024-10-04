@@ -1,63 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Whack-A-Mole</title>
+    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="css/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/player.js"></script>
+    <script type="text/javascript" src="js/mole.js"></script>
+    <script type="text/javascript" src="js/game.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Amatic+SC"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Whack-A-Mole
-  </title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-  <!--   <script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-  <script type="text/javascript" src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script> -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="js/player.js"></script>
-  <script type="text/javascript" src="js/mole.js"></script>
-  <script type="text/javascript" src="js/game.js"></script>
-  <script type="text/javascript" src="js/index.js"></script>
-  <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-
-</head>
-
-<body>
-  <header>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="name col-3" id="nombre-jugador"></div>
-        <h1 class="col-6">Whack-A-Mole</h1>
-        <div class="col-3 s-v">
-          <div class="score" id="puntos">Puntos:</div>
-          <div id="vidas">Vidas:</div>
+  <body class="body-styles">
+    <div class="container-fluid game-container">
+      <header>
+        <div class="row justify-content-evenly justify-content-lg-center">
+          <div class="name col-lg-3 col-6 order-lg-1 order-2" id="nombre-jugador"></div>
+          <h1 class="col-lg-6 col-12 order-lg-2 order-1 title-game">Whack-A-Mole</h1>
+          <div class="col-lg-3 col-6 order-lg-3 order-3 s-v">
+            <div class="score" id="puntos">Puntos:</div>
+            <div id="vidas">Vidas:</div>
+          </div>
+        </div>
+      </header>
+      <main>
+        <div id="mole-game">
+          <div class="row justify-content-evenly justify-content-md-center">
+            <div class="mole col-4 col-md-3" mole-idx="0"></div>
+            <div class="mole col-4 col-md-3 mx-3 mx-md-4" mole-idx="1"></div>
+            <div class="mole col-4 col-md-3" mole-idx="2"></div>
+          </div>
+          <div class="row justify-content-evenly justify-content-md-center">
+            <div class="mole col-4 col-md-3" mole-idx="3"></div>
+            <div class="mole col-4 col-md-3 mx-3 mx-md-4" mole-idx="4"></div>
+            <div class="mole col-4 col-md-3" mole-idx="5"></div>
+          </div>
+          <div class="row justify-content-evenly justify-content-md-center">
+            <div class="mole col-4 col-md-3" mole-idx="6"></div>
+            <div class="mole col-4 col-md-3 mx-3 mx-md-4" mole-idx="7"></div>
+            <div class="mole col-4 col-md-3" mole-idx="8"></div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <!-- End content -->
+    <!-- Modal final -->
+    <div
+      class="modal fade"
+      id="modal-end"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Whack-A-Mole</h5>
+          </div>
+          <div class="mensaje"></div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" id="jugar-dn" class="btn btn-primary">
+              <a href="index.html">Volver a juagar</a>
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </header>
-  <main class="container-fluid">
-    <div id="mole-game"></div>
-  </main>
-  <!-- End content -->
-  <!-- Modal final -->
-  <div class="modal fade" id="modal-end" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Whack-A-Mole</h5>
-        </div>
-        <div class="mensaje">
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" id="jugar-dn" class="btn btn-primary">
-            <a href="index.html">Volver a juagar</a>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</body>
-
+  </body>
 </html>

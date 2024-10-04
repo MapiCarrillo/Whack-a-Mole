@@ -24,7 +24,7 @@ function Game(container, playerName, rounds) {
 }
 
 Game.prototype.generateMoles = function() {
-  this.domMole = $("#mole-game");
+  this.domMole = document.getElementById("mole-game")
   for (var i = 0; i < this.numberOfMoles; i++) {
     var mole = new Mole(this, i);
     this.moleArray.push(mole);
@@ -102,11 +102,13 @@ Game.prototype.resetMole = function() {
   $(".mole").removeClass("active");
 };
 Game.prototype.pushMole = function(mole) {
-  mole.addClass("push");
-  mole.removeClass("active");
+  // mole.addClass("push");
+  // mole.removeClass("active");
+  mole.classList.add("push");
+  mole.classList.remove("active");
   this.timeOut = setTimeout(
     function() {
-      mole.removeClass("push");
+      mole.classList.remove("push");
     }.bind(this),
     1000
   );

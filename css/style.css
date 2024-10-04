@@ -26,16 +26,18 @@
   height: 100vh;
   justify-content: space-evenly;
 } 
-h1 {
+h1.title-game {
   text-align: center;
   font-family: "Amatic SC", cursive;
   font-size: 7.5em;
+  line-height: normal;
 }
 .hstart {
   text-align: center;
   font-family: "Amatic SC", cursive;
   font-size: 10em;
   margin: 235px auto 0 auto;
+  line-height: normal;
 }
 /* .row {
   margin-top: 1%;
@@ -45,12 +47,14 @@ h1 {
   margin-top: 10px;
   text-align: center;
   font-family: "Amatic SC", cursive;
+  line-height: normal;
 }
 
 .name {
   font-size: 3em;
   text-align: center;
   font-family: "Amatic SC", cursive;
+  line-height: normal;
 }
 #mole-game {
   text-align: center;
@@ -79,12 +83,13 @@ h1 {
   width: 100%;
   background-image: url(../img/topos-topos.png);
   position: absolute;
-  top: 0;
+  /* top: 0; */
   left: 0;
-  background-size: 46%;
+  background-size: 50%;
   z-index: -1;
   background-repeat: no-repeat;
   background-position-x: center;
+  background-position-y: bottom;
 }
 .push::after {
   background-image: url(../img/topos-topos-push.png);
@@ -97,16 +102,6 @@ h1 {
   font-family: Comic, "Courier New", Courier, monospace;
   font-size: 80px;
 }
-/* .container {
-  font-family: Comic, "Courier New", Courier, monospace;
-  font-size: 30px;
-  color: rgb(7, 145, 7);
-  border: 1px solid black;
-  padding: 5%;
-  margin-top: 5px;
-  text-align: center;
-} */
-
 #modal-end {
   display: none;
   text-align: center;
@@ -119,4 +114,33 @@ a {
 a:hover {
   color: white;
   text-decoration: none;
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  h1.title-game {
+    font-size: 70px;
+  } 
+  .name,
+  .s-v  {
+    font-size: 36px;
+  }
+  .mole {
+    min-height: 100px ;
+  } 
+  
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .mole{
+    width: 20%;
+  } 
 }
